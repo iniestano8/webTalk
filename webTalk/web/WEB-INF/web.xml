@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <servlet>
+      <servlet-name>webTalk</servlet-name>
+      <servlet-class>com.hongyuan.talk.TalkServlet</servlet-class>
+      <init-param>
+          <param-name>Bean_talkBean</param-name>
+          <param-value>com.hongyuan.talk.TalkBean</param-value>
+      </init-param>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>webTalk</servlet-name>
+      <url-pattern>/talkService.srv</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Define the pushlet servlet -->  
+    <servlet>  
+        <servlet-name>pushlet</servlet-name>  
+        <servlet-class>nl.justobjects.pushlet.servlet.Pushlet</servlet-class>  
+        <load-on-startup>3</load-on-startup>  
+    </servlet>  
+    <!-- Define the Servlet Mappings. -->  
+    <!-- The pushlet -->  
+    <servlet-mapping>  
+        <servlet-name>pushlet</servlet-name>  
+        <url-pattern>/pushlet.srv</url-pattern>  
+    </servlet-mapping> 
+  
+  <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.qq.connect.demo.IndexServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <!-- 业界标准 用.do后缀来表示 controler -->
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>afterlogin</servlet-name>
+        <servlet-class>com.qq.connect.demo.AfterLoginRedirectServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>afterlogin</servlet-name>
+        <!-- 业界标准 用.do后缀来表示 controler -->
+        <url-pattern>/afterlogin.do</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>shuoshuo</servlet-name>
+        <servlet-class>com.qq.connect.demo.ShuoShuoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>shuoshuo</servlet-name>
+        <url-pattern>/shuoshuo.do</url-pattern>
+    </servlet-mapping>
+  
+  
+  <welcome-file-list>
+    <welcome-file>talkService.srv</welcome-file>
+  </welcome-file-list>
+</web-app>
